@@ -40,15 +40,15 @@
   }
  
   .select-heading { text-align: center; }
-  .select-heading h1 { font-size: 20px; font-weight: 900; letter-spacing: 0.04em; color: #fff; margin-bottom: 6px; }
-  .select-heading p  { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #2a2a2a; }
+  .select-heading h1 { font-size: 15px; font-weight: 900; letter-spacing: 0.04em; color: #fff; margin-bottom: 6px; }
+  .select-heading p  { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; }
  
   .select-row {
     display: flex;
     align-items: center;
     gap: 12px;
     width: 100%;
-    max-width: 680px;
+    max-width: 620px;
   }
  
   .pill-wrap { flex: 1; position: relative; }
@@ -57,7 +57,7 @@
     width: 100%;
     background: var(--red);
     border: none;
-    border-radius: 999px;
+    border-radius: 500px;
     padding: 16px 22px;
     font-family: var(--font);
     font-size: 16px; font-weight: 700; color: #fff;
