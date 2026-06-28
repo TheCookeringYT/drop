@@ -19,61 +19,60 @@
     height: 100%; width: 100%;
     background: var(--bg);
     font-family: var(--font);
-    color: #ff000;
+    color: #fff;
     overflow: hidden;
   }
  
   #screen-select {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 680px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 28px;
-    padding: 32px 24px;
-    animation: fadeIn 0.4s ease;
+    gap: 14px;
+    padding: 16px;
+    animation: fadeIn 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   }
  
   #screen-select.exit {
-    animation: exitUp 0.3s ease forwards;
+    animation: exitUp 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   }
  
   .select-heading { text-align: center; }
-  .select-heading h1 { font-size: 15px; font-weight: 900; letter-spacing: 0.04em; color: #fff; margin-bottom: 6px; }
-  .select-heading p  { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; }
+  .select-heading h1 { font-size: 18px; font-weight: 900; letter-spacing: 0.04em; color: #fff; margin-bottom: 2px; }
+  .select-heading p  { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; opacity: 0.7; }
  
   .select-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    position: relative;
     width: 100%;
-    max-width: 620px;
   }
  
-  .pill-wrap { flex: 1; position: relative; }
+  .pill-wrap { width: 100%; position: relative; }
  
   .pill-trigger {
     width: 100%;
     background: var(--red);
     border: none;
-    border-radius: 500px;
-    padding: 16px 22px;
+    border-radius: 999px;
+    padding: 12px 20px;
     font-family: var(--font);
-    font-size: 16px; font-weight: 700; color: #fff;
+    font-size: 15px; font-weight: 700; color: #fff;
     cursor: pointer;
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    transition: background 0.13s, border-radius 0.15s, transform 0.12s;
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    transition: background 0.2s cubic-bezier(0.25, 1, 0.5, 1), border-radius 0.2s cubic-bezier(0.25, 1, 0.5, 1), transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
     outline: none;
   }
  
   .pill-trigger:hover { background: #e50000; transform: translateY(-1px); }
-  .pill-trigger.open  { border-radius: 22px 22px 0 0; background: var(--red-dark); transform: none; }
+  .pill-trigger.open  { border-radius: 16px 16px 0 0; background: var(--red-dark); transform: none; }
  
-  .pill-label { flex: 1; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0.8; }
+  .pill-label { flex: 1; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0.8; transition: opacity 0.2s ease; }
   .pill-label.chosen { opacity: 1; }
  
-  .pill-chevron { width: 20px; height: 20px; flex-shrink: 0; transition: transform 0.2s; }
+  .pill-chevron { width: 18px; height: 18px; flex-shrink: 0; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
   .pill-trigger.open .pill-chevron { transform: rotate(180deg); }
  
   .drop-menu {
@@ -83,82 +82,103 @@
     background: #130000;
     border: 1px solid #3a0000;
     border-top: none;
-    border-radius: 0 0 22px 22px;
-    max-height: 300px;
+    border-radius: 0 0 16px 16px;
+    max-height: 220px;
     overflow-y: auto;
     z-index: 200;
+    opacity: 0;
+    transform: translateY(-4px);
   }
  
-  .drop-menu.open { display: block; animation: menuSlide 0.16s ease; }
+  .drop-menu.open { 
+    display: block; 
+    animation: menuSlideIn 0.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+ 
   .drop-menu::-webkit-scrollbar { width: 4px; }
   .drop-menu::-webkit-scrollbar-thumb { background: #3a0000; border-radius: 2px; }
  
   .group-hdr {
-    padding: 10px 20px 3px;
-    font-size: 8.5px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
-    color: #3a0000; border-top: 1px solid #1e0000;
+    padding: 8px 16px 2px;
+    font-size: 8px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+    color: #fff; border-top: 1px solid #1e0000;
   }
   .group-hdr:first-child { border-top: none; }
  
   .drop-item {
-    padding: 11px 20px;
-    font-size: 14px; font-weight: 700; color: #bbb;
-    cursor: pointer; display: flex; align-items: center; gap: 10px;
-    transition: background 0.1s, color 0.1s;
+    padding: 9px 16px;
+    font-size: 13px; font-weight: 700; color: #fff;
+    cursor: pointer; display: flex; align-items: center; gap: 8px;
+    transition: background 0.15s ease, color 0.15s ease;
   }
   .drop-item:hover { background: rgba(255,0,0,0.13); color: #fff; }
-  .drop-item:last-child { border-radius: 0 0 22px 22px; }
+  .drop-item:last-child { border-radius: 0 0 16px 16px; }
  
-  .item-sz { margin-left: auto; font-size: 9.5px; font-weight: 600; color: #2e0000; flex-shrink: 0; }
+  .item-sz { margin-left: auto; font-size: 9px; font-weight: 600; color: #fff; flex-shrink: 0; }
  
-  .badge { font-size: 8px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 3px; padding: 2px 5px; flex-shrink: 0; }
+  .badge { font-size: 7.5px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 3px; padding: 1px 4px; flex-shrink: 0; }
   .badge-wisp { background: #4a0aff; color: #fff; }
   .badge-wasm { background: #883300; color: #fff; }
  
-  /* Action buttons — shown after selection, same row */
   .action-btns {
     display: flex;
+    justify-content: center;
     gap: 10px;
-    flex-shrink: 0;
+    width: 100%;
   }
  
-  .launch-pill {
+  .launch-pill, .dl-pill {
     background: #0d0000;
-    border: 2px solid #330000;
+    border: 2px solid #1c1c1c;
     border-radius: 999px;
-    padding: 14px 32px;
+    padding: 10px 28px;
     font-family: var(--font);
-    font-size: 16px; font-weight: 900; color: #bd0f0f;
-    cursor: pointer; white-space: nowrap;
-    transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.12s;
+    font-size: 14px; font-weight: 900; color: #444;
+    cursor: default; white-space: nowrap;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
     letter-spacing: 0.04em;
   }
-  .launch-pill:not(:disabled):hover { background: var(--red); border-color: var(--red); color: #fff; transform: translateY(-1px); }
-  .launch-pill:disabled { opacity: 0.3; cursor: default; }
  
-  .dl-pill {
-    background: #0d0000;
-    border: 2px solid #330000;
-    border-radius: 999px;
-    padding: 14px 28px;
-    font-family: var(--font);
-    font-size: 16px; font-weight: 900; color: #550000;
-    cursor: pointer; white-space: nowrap;
-    transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.12s;
-    letter-spacing: 0.04em;
-    display: none;
+  .dl-pill.activated {
+    border-color: #333;
+    color: #bbb;
+    cursor: pointer;
   }
-  .dl-pill.visible { display: block; }
-  .dl-pill:hover { background: #111; border-color: #555; color: #555; transform: translateY(-1px); }
+  .dl-pill.activated:hover {
+    background: #111;
+    border-color: #555;
+    color: #fff;
+    transform: translateY(-1px);
+  }
  
-  @keyframes fadeIn    { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes exitUp    { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-16px); } }
-  @keyframes menuSlide { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+  .launch-pill.activated {
+    border-color: #330000;
+    color: #bbb;
+    cursor: pointer;
+  }
+  .launch-pill.activated:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+ 
+  @keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(-4px); } 
+    to { opacity: 1; transform: translateY(0); } 
+  }
+  @keyframes exitUp { 
+    from { opacity: 1; transform: translateY(0); } 
+    to { opacity: 0; transform: translateY(-4px); } 
+  }
+  @keyframes menuSlideIn { 
+    from { opacity: 0; transform: translateY(-4px); } 
+    to { opacity: 1; transform: translateY(0); } 
+  }
  
   @media (max-width: 520px) {
-    .select-row { flex-direction: column; }
-    .action-btns { width: 100%; }
-    .launch-pill, .dl-pill { flex: 1; text-align: center; }
+    .action-btns { flex-direction: column; width: 100%; gap: 6px; }
+    .launch-pill, .dl-pill { text-align: center; width: 100%; }
   }
 </style>
 </head>
@@ -169,6 +189,7 @@
     <h1>Select a version and click Launch</h1>
     <p>EaglercraftNOA · Eaglercraft Launcher</p>
   </div>
+ 
   <div class="select-row">
     <div class="pill-wrap">
       <button class="pill-trigger" id="pillTrigger">
@@ -179,10 +200,11 @@
       </button>
       <div class="drop-menu" id="dropMenu"></div>
     </div>
-    <div class="action-btns">
-      <button class="dl-pill" id="dlBtn">Download</button>
-      <button class="launch-pill" id="launchBtn" disabled>Launch</button>
-    </div>
+  </div>
+ 
+  <div class="action-btns">
+    <button class="dl-pill" id="dlBtn">Download</button>
+    <button class="launch-pill" id="launchBtn">Launch</button>
   </div>
 </div>
  
@@ -195,7 +217,7 @@ const CATALOG = [
   { g:"Modern",  name:"1.21.11 (WASM)",        file:"Eaglercraft-1-21-11_wasm.html",       b:["wasm"],        sz:"46 MB" },
   { g:"Modern",  name:"1.17 (WASM-GC)",        file:"eaglercraft-1.17-wasm_gc.html",       b:["wasm"],        sz:"48 MB" },
   { g:"Modern",  name:"1.12.2 (WASM-GC)",      file:"Eaglercraft_1.12.2-WASM-GC.html",     b:["wasm"],        sz:"24 MB" },
-  { g:"Modern",  name:"1.12.2",                file:"Eaglercraft-1.12.html",               b:[],              sz:"24 MB" },
+  { g:"Modern",  name:"1.12",                file:"Eaglercraft-1.12.html",               b:[],              sz:"24 MB" },
   { g:"Modern",  name:"1.12 + Wispcraft",      file:"wispcraft-Eaglercraft-1.12.html",     b:["wisp"],        sz:"26 MB" },
   { g:"Modern",  name:"1.11.2",                file:"Eaglercraft-1.11.2.html",             b:[],              sz:"27 MB" },
   { g:"Modern",  name:"1.8.8",                 file:"Eaglercraft-1.8.8.html",              b:[],              sz:"17 MB" },
@@ -209,26 +231,27 @@ const CATALOG = [
   { g:"Modern",  name:"1.1",                   file:"Eaglercraft_1.1.html",                b:[],              sz:"8 MB"  },
   { g:"Modern",  name:"1.0.0",                 file:"Eaglercraft_1_0_0.html",              b:[],              sz:"24 MB" },
   { g:"Modern",  name:"Mobile Edition",         file:"Eaglercraft Mobile.html",             b:[],              sz:"15 MB" },
-  { g:"Modern",    name:"Beta 1.8.1 (WASM)",     file:"Eaglercraft_beta 1.8.1_WASM.html",    b:["wasm"],        sz:"21 MB" },
-  { g:"Modern",    name:"Beta 1.7.3",             file:"Beta_1.7.3.html",                     b:[],              sz:"16 MB" },
-  { g:"Modern",    name:"Beta 1.6.4",             file:"Eaglercraft_b-1_6_4.html",            b:[],              sz:"23 MB" },
-  { g:"Modern",    name:"Beta b1.1",              file:"Eaglercraft_b1.1.html",               b:[],              sz:"23 MB" },
-  { g:"Modern",    name:"Beta 1.3",               file:"eaglercraft-beta-1.3.html",           b:[],              sz:"4 MB"  },
-  { g:"Modern",   name:"Alpha 1.3.2",            file:"Eaglercraft_1_3_2.html",              b:[],              sz:"28 MB" },
-  { g:"Modern",   name:"Alpha 1.2.6",            file:"eaglercraft-alpha-1.2.6.html",        b:[],              sz:"8 MB"  },
-  { g:"Modern",   name:"Infdev (WASM-GC)",       file:"infdev-wasm-gc.html",                 b:[],              sz:"1.4 MB"},
-  { g:"Modern",   name:"Indev 20100233",         file:"Eaglercraft_indev_20100233.html",      b:[],              sz:"21 MB" },
-  { g:"Modern",   name:"Indev",         file:"eagler-indev.html",                   b:[],              sz:"1.1 MB"},
-  { g:"Modern",   name:"Pre-Release 160052",     file:"pre-release-160052.html",             b:[],              sz:"0.9 MB"},
-  { g:"Modern",   name:"rd-132328 (WASM)",       file:"rd-132328-WASM.html",                 b:[],              sz:"0.9 MB"},
-  { g:"Modern", name:"Classic 0.30 (WASM)",    file:"eaglercraft-classic-0.30-WASM.html",  b:[],              sz:"3.6 MB"},
+  { g:"Beta",    name:"Beta 1.8.1 (WASM)",     file:"Eaglercraft_beta 1.8.1_WASM.html",    b:["wasm"],        sz:"21 MB" },
+  { g:"Beta",    name:"Beta 1.7.3",             file:"Beta_1.7.3.html",                     b:[],              sz:"16 MB" },
+  { g:"Beta",    name:"Beta 1.6.4",             file:"Eaglercraft_b-1_6_4.html",            b:[],              sz:"23 MB" },
+  { g:"Beta",    name:"Beta 1.5_01",             file:"Eaglercraft Beta 1.5_01.html",       b:["wasm"],        sz:"35 MB" },
+  { g:"Beta",    name:"Beta b1.1",              file:"Eaglercraft_b1.1.html",               b:[],              sz:"23 MB" },
+  { g:"Beta",    name:"Beta 1.3",               file:"eaglercraft-beta-1.3.html",           b:[],              sz:"4 MB"  },
+  { g:"Alpha",   name:"Alpha 1.3.2",            file:"Eaglercraft_1_3_2.html",              b:[],              sz:"28 MB" },
+  { g:"Alpha",   name:"Alpha 1.2.6",            file:"eaglercraft-alpha-1.2.6.html",        b:[],              sz:"8 MB"  },
+  { g:"Indev",   name:"Infdev (WASM-GC)",       file:"infdev-wasm-gc.html",                 b:[],              sz:"1.4 MB"},
+  { g:"Indev",   name:"Indev 20100233",         file:"Eaglercraft_indev_20100233.html",      b:[],              sz:"21 MB" },
+  { g:"Indev",   name:"Indev",         file:"eagler-indev.html",                   b:[],              sz:"1.1 MB"},
+  { g:"Indev",   name:"Pre-Release rd-160052",     file:"pre-release-160052.html",             b:[],              sz:"0.9 MB"},
+  { g:"Indev",   name:"Pre-Release rd-132328 (WASM)",       file:"rd-132328-WASM.html",                 b:[],              sz:"0.9 MB"},
+  { g:"Classic", name:"Classic 0.30 (WASM)",    file:"eaglercraft-classic-0.30-WASM.html",  b:[],              sz:"3.6 MB"},
 ];
  
 const BADGE_CFG = {
   wisp: { cls:"badge-wisp", label:"Wisp" },
   wasm: { cls:"badge-wasm", label:"WASM" },
 };
-const ORDER = ["Modern",];
+const ORDER = ["Modern","Beta","Alpha","Indev","Classic"];
  
 const pillTrigger = document.getElementById("pillTrigger");
 const pillLabel   = document.getElementById("pillLabel");
@@ -239,7 +262,6 @@ const dlBtn       = document.getElementById("dlBtn");
 let menuOpen = false;
 let selected = null;
  
-// Build dropdown
 const groups = {};
 CATALOG.forEach(e => { if (!groups[e.g]) groups[e.g]=[]; groups[e.g].push(e); });
 ORDER.forEach(g => {
@@ -257,8 +279,10 @@ ORDER.forEach(g => {
       selected = entry;
       pillLabel.textContent = entry.name;
       pillLabel.classList.add("chosen");
-      launchBtn.disabled = false;
-      dlBtn.classList.add("visible");
+ 
+      launchBtn.classList.add("activated");
+      dlBtn.classList.add("activated");
+ 
       closeMenu();
     });
     dropMenu.appendChild(el);
@@ -299,3 +323,4 @@ dlBtn.addEventListener("click", async () => {
 </script>
 </body>
 </html>
+
