@@ -10,7 +10,7 @@
  
   :root {
     --red: #ff0000;
-    --red-dark: #cc0000;
+    --red-dark: #ff0000;
     --bg: #000;
     --font: 'Nunito', sans-serif;
   }
