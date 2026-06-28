@@ -19,7 +19,7 @@
     height: 100%; width: 100%;
     background: var(--bg);
     font-family: var(--font);
-    color: #fff;
+    color: #ff000;
     overflow: hidden;
   }
  
@@ -167,7 +167,7 @@
 <div id="screen-select">
   <div class="select-heading">
     <h1>Select a version and click Launch</h1>
-    <p>EaglercraftNOA · Browser Client</p>
+    <p>EaglercraftNOA · Eaglercraft Launcher</p>
   </div>
   <div class="select-row">
     <div class="pill-wrap">
