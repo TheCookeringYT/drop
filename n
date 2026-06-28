@@ -191,10 +191,10 @@ const BASE = "https://eaglercraftnoa.github.io/play/";
 const RAW  = "https://raw.githubusercontent.com/EaglercraftNOA/play/main/";
  
 const CATALOG = [
-   { g:"Modern", name:"26.1.2 (WASM)",    file:"eaglercraft-26.1.2-WASM_Novix.html",  b:["wasm"],        sz:"63 MB" },
-  { g:"Modern",  name:"1.21.11 (WASM)",      file:"Eaglercraft-1-21-11_wasm.html",       b:["wasm"],        sz:"46 MB" },
-  { g:"Modern",  name:"1.17 (WASM-GC)",       file:"eaglercraft-1.17-wasm_gc.html",       b:["wasm"],        sz:"48 MB" },
-  { g:"Modern",  name:"1.12.2 (WASM-GC)",     file:"Eaglercraft_1.12.2-WASM-GC.html",     b:["wasm"],        sz:"24 MB" },
+  { g:"Modern",  name:"26.1.2 (WASM)",          file:"eaglercraft-26.1.2-WASM_Novix.html",  b:["wasm"],        sz:"63 MB" },
+  { g:"Modern",  name:"1.21.11 (WASM)",        file:"Eaglercraft-1-21-11_wasm.html",       b:["wasm"],        sz:"46 MB" },
+  { g:"Modern",  name:"1.17 (WASM-GC)",        file:"eaglercraft-1.17-wasm_gc.html",       b:["wasm"],        sz:"48 MB" },
+  { g:"Modern",  name:"1.12.2 (WASM-GC)",      file:"Eaglercraft_1.12.2-WASM-GC.html",     b:["wasm"],        sz:"24 MB" },
   { g:"Modern",  name:"1.12.2",                file:"Eaglercraft-1.12.html",               b:[],              sz:"24 MB" },
   { g:"Modern",  name:"1.12 + Wispcraft",      file:"wispcraft-Eaglercraft-1.12.html",     b:["wisp"],        sz:"26 MB" },
   { g:"Modern",  name:"1.11.2",                file:"Eaglercraft-1.11.2.html",             b:[],              sz:"27 MB" },
