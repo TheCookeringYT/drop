@@ -119,6 +119,7 @@
   .badge { font-size: 7.5px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 3px; padding: 1px 4px; flex-shrink: 0; }
   .badge-wisp { background: #4a0aff; color: #fff; }
   .badge-wasm { background: #32CD32; color: #fff; }
+  .badge-javs { background: #FFBF00; color: #fff; }
  
   .action-btns {
     display: flex;
@@ -186,14 +187,14 @@
  
 <div id="screen-select">
   <div class="select-heading">
-    <h1>Select a version and click Launch</h1>
+    <h1>Select a version and click launch!</h1>
     <p>EaglercraftNOA · Eaglercraft Launcher</p>
   </div>
  
   <div class="select-row">
     <div class="pill-wrap">
       <button class="pill-trigger" id="pillTrigger">
-        <span class="pill-label" id="pillLabel">Choose a client…</span>
+        <span class="pill-label" id="pillLabel">Choose a version…</span>
         <svg class="pill-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="5 8 10 13 15 8"/>
         </svg>
@@ -217,40 +218,41 @@ const CATALOG = [
   { g:"Modern",  name:"1.21.11",        file:"Eaglercraft-1-21-11_wasm.html",       b:["wasm"],        sz:"46 MB" },
   { g:"Modern",  name:"1.17",        file:"eaglercraft-1.17-wasm_gc.html",       b:["wasm"],        sz:"48 MB" },
   { g:"Modern",  name:"1.12.2",      file:"Eaglercraft_1.12.2-WASM-GC.html",     b:["wasm"],        sz:"24 MB" },
-  { g:"Modern",  name:"1.12",                  file:"Eaglercraft_1.12_Javascriptl.html",               b:[],              sz:"74 MB" },
+  { g:"Modern",  name:"1.12",                  file:"Eaglercraft_1.12_Javascriptl.html",               b:["javs"],              sz:"74 MB" },
   { g:"Modern",  name:"1.12",      file:"wispcraft-Eaglercraft-1.12.html",     b:["wisp"],        sz:"26 MB" },
-  { g:"Modern",  name:"1.11.2",                file:"Eaglercraft-1.11.2.html",             b:[],              sz:"27 MB" },
-  { g:"Modern",  name:"1.9.4",                 file:"eaglercraftx-194.html",               b:[],              sz:"17 MB" },
+  { g:"Modern",  name:"1.11.2",                file:"Eaglercraft-1.11.2.html",             b:["javs"],              sz:"27 MB" },
+  { g:"Modern",  name:"1.9.4",                 file:"eaglercraftx-194.html",               b:["javs"],              sz:"17 MB" },
   { g:"Modern",  name:"1.8.8",                 file:"Eaglercraft-1.8.8.html",              b:["wasm"],        sz:"17 MB" },
   { g:"Modern",  name:"1.8",  file:"Eaglercraft-1.8_wasm-wispcraft.html", b:["wasm","wisp"], sz:"16 MB" },
   { g:"Modern",  name:"1.7",            file:"Eaglercraft-1.7-wasm.html",           b:["wasm"],        sz:"12 MB" },
-  { g:"Modern",  name:"1.6.4",                 file:"Eaglercraft 1.6.4.html",              b:[],              sz:"26 MB" },
-  { g:"Modern",  name:"1.5.2",                 file:"1.5.2.html",                          b:[],              sz:"22 MB" },
+  { g:"Modern",  name:"1.6.4",                 file:"Eaglercraft 1.6.4.html",              b:["javs"],              sz:"26 MB" },
+  { g:"Modern",  name:"1.5.2",                 file:"1.5.2.html",                          b:["javs"],              sz:"22 MB" },
   { g:"Modern",  name:"1.5.2",       file:"Eaglercraft-1.5-wispcraft.html",      b:["wisp"],        sz:"24 MB" },
   { g:"Modern",  name:"1.4.7",          file:"Eaglercraft_1.4.7-WASM.html",         b:["wasm"],        sz:"38 MB" },
   { g:"Modern",  name:"1.2.5",          file:"Eaglercraft_1.2.5_wasm.html",         b:["wasm"],        sz:"23 MB" },
-  { g:"Modern",  name:"1.1",                   file:"Eaglercraft_1.1.html",                b:[],              sz:"8 MB"  },
-  { g:"Modern",  name:"1.0.0",                 file:"Eaglercraft_1_0_0.html",              b:[],              sz:"24 MB" },
-  { g:"Modern",  name:"Mobile Edition",         file:"Eaglercraft Mobile.html",             b:[],              sz:"15 MB" },
+  { g:"Modern",  name:"1.1",                   file:"Eaglercraft_1.1.html",                b:["javs"],              sz:"8 MB"  },
+  { g:"Modern",  name:"1.0.0",                 file:"Eaglercraft_1_0_0.html",              b:["javs"],              sz:"24 MB" },
+  { g:"Modern",  name:"Mobile Edition",         file:"Eaglercraft Mobile.html",             b:["javs"],              sz:"15 MB" },
   { g:"Beta",    name:"Beta 1.8.1",     file:"Eaglercraft_beta 1.8.1_WASM.html",    b:["wasm"],        sz:"21 MB" },
-  { g:"Beta",    name:"Beta 1.7.3",             file:"Beta_1.7.3.html",                     b:[],              sz:"16 MB" },
-  { g:"Beta",    name:"Beta 1.6.4",             file:"Eaglercraft_b-1_6_4.html",            b:[],              sz:"23 MB" },
+  { g:"Beta",    name:"Beta 1.7.3",             file:"Beta_1.7.3.html",                     b:["javs"],              sz:"16 MB" },
+  { g:"Beta",    name:"Beta 1.6.4",             file:"Eaglercraft_b-1_6_4.html",            b:["javs"],              sz:"23 MB" },
   { g:"Beta",    name:"Beta 1.5_01",             file:"Eaglercraft Beta 1.5_01.html",       b:["wasm"],        sz:"35 MB" },
-  { g:"Beta",    name:"Beta b1.1",              file:"Eaglercraft_b1.1.html",               b:[],              sz:"23 MB" },
-  { g:"Beta",    name:"Beta 1.3",               file:"eaglercraft-beta-1.3.html",           b:[],              sz:"4 MB"  },
-  { g:"Alpha",   name:"Alpha 1.3.2",            file:"Eaglercraft_1_3_2.html",              b:[],              sz:"28 MB" },
-  { g:"Alpha",   name:"Alpha 1.2.6",            file:"eaglercraft-alpha-1.2.6.html",        b:[],              sz:"8 MB"  },
-  { g:"Indev",   name:"Infdev",       file:"infdev-wasm-gc.html",                 b:[],              sz:"1.4 MB"},
-  { g:"Indev",   name:"Indev 20100233",         file:"Eaglercraft_indev_20100233.html",      b:[],              sz:"21 MB" },
-  { g:"Indev",   name:"Indev",         file:"eagler-indev.html",                   b:[],              sz:"1.1 MB"},
-  { g:"Indev",   name:"Pre-Release rd-160052",     file:"pre-release-160052.html",             b:[],              sz:"0.9 MB"},
-  { g:"Indev",   name:"Pre-Release rd-132328)",       file:"rd-132328-WASM.html",                 b:[],              sz:"0.9 MB"},
-  { g:"Classic", name:"Classic 0.30",    file:"eaglercraft-classic-0.30-WASM.html",  b:[],              sz:"3.6 MB"},
+  { g:"Beta",    name:"Beta b1.1",              file:"Eaglercraft_b1.1.html",               b:["javs"],              sz:"23 MB" },
+  { g:"Beta",    name:"Beta 1.3",               file:"eaglercraft-beta-1.3.html",           b:["javs"],              sz:"4 MB"  },
+  { g:"Alpha",   name:"Alpha 1.3.2",            file:"Eaglercraft_1_3_2.html",              b:["javs"],              sz:"28 MB" },
+  { g:"Alpha",   name:"Alpha 1.2.6",            file:"eaglercraft-alpha-1.2.6.html",        b:["javs"],              sz:"8 MB"  },
+  { g:"Indev",   name:"Infdev",       file:"infdev-wasm-gc.html",                 b:["javs"],              sz:"1.4 MB"},
+  { g:"Indev",   name:"Indev 20100233",         file:"Eaglercraft_indev_20100233.html",      b:["javs"],              sz:"21 MB" },
+  { g:"Indev",   name:"Indev",         file:"eagler-indev.html",                   b:["javs"],              sz:"1.1 MB"},
+  { g:"Indev",   name:"Pre-Release rd-160052",     file:"pre-release-160052.html",             b:["wasm"],              sz:"0.9 MB"},
+  { g:"Indev",   name:"Pre-Release rd-132328)",       file:"rd-132328-WASM.html",                 b:["wasm"],              sz:"0.9 MB"},
+  { g:"Classic", name:"Classic 0.30",    file:"eaglercraft-classic-0.30-WASM.html",  b:["javs"],              sz:"3.6 MB"},
 ];
  
 const BADGE_CFG = {
   wisp: { cls:"badge-wisp", label:"Wisp" },
   wasm: { cls:"badge-wasm", label:"WASM" },
+  javs: { cls:"badge-javs", label:"JAVS" },
 };
 const ORDER = ["Modern","Beta","Alpha","Indev","Classic"];
  
