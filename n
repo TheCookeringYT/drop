@@ -217,7 +217,7 @@ const CATALOG = [
   { g:"Modern",  name:"1.21.11 (WASM)",        file:"Eaglercraft-1-21-11_wasm.html",       b:["wasm"],        sz:"46 MB" },
   { g:"Modern",  name:"1.17 (WASM-GC)",        file:"eaglercraft-1.17-wasm_gc.html",       b:["wasm"],        sz:"48 MB" },
   { g:"Modern",  name:"1.12.2 (WASM-GC)",      file:"Eaglercraft_1.12.2-WASM-GC.html",     b:["wasm"],        sz:"24 MB" },
-  { g:"Modern",  name:"1.12",                  file:"Eaglercraft-1.12.html",               b:[],              sz:"24 MB" },
+  { g:"Modern",  name:"1.12.2"                 file:"Eaglercraft_1.12_Javascriptl.html",   b:[],              sz:"74 MB" },
   { g:"Modern",  name:"1.12 + Wispcraft",      file:"wispcraft-Eaglercraft-1.12.html",     b:["wisp"],        sz:"26 MB" },
   { g:"Modern",  name:"1.11.2",                file:"Eaglercraft-1.11.2.html",             b:[],              sz:"27 MB" },
   { g:"Modern",  name:"1.9.4",                 file:"eaglercraftx-194.html",               b:[],              sz:"17 MB" },
