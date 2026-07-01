@@ -308,12 +308,12 @@ document.addEventListener("click", e => {
  
 launchBtn.addEventListener("click", () => {
   if (!selected) return;
- window.open(BASE + encodeURI(selected.file), "_blank");
+ window.open(BASE + encodeURIComponent(selected.file), "_blank");
 });
  
 dlBtn.addEventListener("click", async () => {
   if (!selected) return;
- const rawUrl = RAW + encodeURI(selected.file);
+ const rawUrl = RAW + encodeURIComponent(selected.file);
   dlBtn.textContent = "Downloading…";
   try {
     const res = await fetch(rawUrl);
