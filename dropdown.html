@@ -220,16 +220,16 @@ const BASE = "https://eaglercraftnoa.github.io/play/";
 const RAW  = "https://raw.githubusercontent.com/EaglercraftNOA/play/main/";
  
 const CATALOG = [
-  { g:"Modern",  name:"26.1.2",          file:"eaglercraft-26.1.2-WASM_Novix.html",  b:["wasm"],        sz:"63 MB" },
-  { g:"Modern",  name:"1.21.11",        file:"Eaglercraft-1-21-11_wasm.html",       b:["wasm"],        sz:"46 MB" },
+  { g:"Modern",  name:"26.1.2",      file:"eaglercraft-26.1.2-WASM_Novix.html",  b:["wasm"],        sz:"63 MB" },
+  { g:"Modern",  name:"1.21.11",     file:"Eaglercraft-1-21-11_wasm.html",       b:["wasm"],        sz:"46 MB" },
   { g:"Modern",  name:"1.17",        file:"eaglercraft-1.17-wasm_gc.html",       b:["wasm"],        sz:"48 MB" },
   { g:"Modern",  name:"1.12.2",      file:"Eaglercraft_1.12.2-WASM-GC.html",     b:["wasm"],        sz:"24 MB" },
-  { g:"Modern",  name:"1.12.2",                  file:"Eaglercraft_1.12_Javascriptl.html",               b:["javs"],              sz:"74 MB" },
+  { g:"Modern",  name:"1.12.2",      file:"Eaglercraft_1.12_Javascriptl.html",   b:["javs"],        sz:"74 MB" },
   { g:"Modern",  name:"1.12.2",      file:"wispcraft-Eaglercraft-1.12.html",     b:["wisp"],        sz:"26 MB" },
-  { g:"Modern",  name:"1.11.2",                file:"Eaglercraft-1.11.2.html",             b:["javs"],              sz:"27 MB" },
-  { g:"Modern",  name:"1.9.4",                 file:"eaglercraftx-194.html",               b:["javs"],              sz:"17 MB" },
-  { g:"Modern",  name:"1.8.8",                 file:"Eaglercraft-1.8.8.html",              b:["wasm"],        sz:"17 MB" },
-  { g:"Modern",  name:"1.8.8",  file:"Eaglercraft-1.8_wasm-wispcraft.html", b:["wasm","wisp"], sz:"16 MB" },
+  { g:"Modern",  name:"1.11.2",      file:"Eaglercraft-1.11.2.html",             b:["javs"],        sz:"27 MB" },
+  { g:"Modern",  name:"1.9.4",       file:"eaglercraftx-194.html",               b:["javs"],        sz:"17 MB" },
+  { g:"Modern",  name:"1.8.8",       file:"Eaglercraft-1.8.8.html",              b:["wasm"],        sz:"17 MB" },
+  { g:"Modern",  name:"1.8.8",  file:"Eaglercraft-1.8_wasm-wispcraft.html",      b:["wasm","wisp"],      sz:"16 MB" },
   { g:"Modern",  name:"1.7.10",            file:"Eaglercraft-1.7-wasm.html",           b:["wasm"],        sz:"12 MB" },
   { g:"Modern",  name:"1.6.4",                 file:"Eaglercraft 1.6.4.html",              b:["javs"],              sz:"26 MB" },
   { g:"Modern",  name:"1.5.2",                 file:"1.5.2.html",                          b:["javs"],              sz:"22 MB" },
@@ -242,10 +242,10 @@ const CATALOG = [
   { g:"Beta",    name:"Beta 1.7.3",             file:"Beta_1.7.3.html",                     b:["javs"],              sz:"16 MB" },
   { g:"Beta",    name:"Beta 1.6.4",             file:"Eaglercraft_b-1_6_4.html",            b:["javs"],              sz:"23 MB" },
   { g:"Beta",    name:"Beta 1.5_01",             file:"Eaglercraft Beta 1.5_01.html",       b:["wasm"],        sz:"35 MB" },
-{ g:"Beta",      name:"Beta 1.4",           file:"beta 1.4/index.html",            dl:"beta 1.4.zip",        b:["javs"], sz:"35 MB" },
-{ g:"Beta",    name:"Beta 1.3",               file:"eaglercraft-beta-1.3.html",           b:["javs"],              sz:"4 MB"  },
+  { g:"Beta",    name:"Beta 1.4",              file:"beta 1.4/index.html",                      b:["javs"],       sz:"35 MB" },
+  { g:"Beta",    name:"Beta 1.3",               file:"eaglercraft-beta-1.3.html",           b:["javs"],              sz:"4 MB"  },
   { g:"Beta",    name:"Beta 1.1",              file:"Eaglercraft_b1.1.html",               b:["javs"],              sz:"23 MB" },
- { g:"Beta",     name:"Beta 1.0.2",            file:"Eaglercraft_Beta_1.0.2.html",          b:["javs"],                 sz:"20.8 MB" },
+  { g:"Beta",     name:"Beta 1.0.2",            file:"Eaglercraft_Beta_1.0.2.html",          b:["javs"],                 sz:"20.8 MB" },
   { g:"Alpha",   name:"Alpha 1.3.2",            file:"Eaglercraft_1_3_2.html",              b:["javs"],              sz:"28 MB" },
   { g:"Alpha",   name:"Alpha 1.2.6",            file:"eaglercraft-alpha-1.2.6.html",        b:["javs"],              sz:"8 MB"  },
   { g:"Indev",   name:"Infdev",       file:"infdev-wasm-gc.html",                 b:["javs"],              sz:"1.4 MB"},
@@ -308,12 +308,12 @@ document.addEventListener("click", e => {
  
 launchBtn.addEventListener("click", () => {
   if (!selected) return;
-  window.open(BASE + encodeURI(selected.file), "_blank");
+ window.open(BASE + encodeURI(selected.file), "_blank");
 });
  
 dlBtn.addEventListener("click", async () => {
   if (!selected) return;
-  const rawUrl = RAW + encodeURI(selected.file);
+ const rawUrl = RAW + encodeURI(selected.file);
   dlBtn.textContent = "Downloading…";
   try {
     const res = await fetch(rawUrl);
